@@ -5,5 +5,5 @@ jobs:                             # 実施されるジョブの定義
     runs-on: ubuntu-latest         # ランナー(実行環境)
     steps:                        # ステップの定義
       - run: echo "Hello, world"  # shaellコマンドの実行
-      - uese: action/checkout@v4  # actionの呼び出し
+      - uses: action/checkout@v4  # actionの呼び出し
   
