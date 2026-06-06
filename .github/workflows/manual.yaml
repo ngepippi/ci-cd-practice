@@ -2,7 +2,7 @@ name: Manual
 on:
   workflow_dispatch:
     inputs:                           # 入力パラメータ定義
-      greating:                       # 入力パラメータ名
+      greeting:                       # 入力パラメータ名
         type: string                  # データ型
         default: Hello                # デフォルト値
         required: true                # 必須任意
