@@ -1,0 +1,19 @@
+name: Static analysis
+on:
+    pull_request:
+        paths: ['.gihub/workflows/*.yml', '.gihub/workflows/*.yaml']
+defaults:
+    run: 
+        shell: bash     # デフォルトのシェルの指定
+concurrency:            # 自動キャンセル（コミットの追加時に古いワークフローの実行をキャンセルする）
+        group: ${{github.workflow}}-${{github.ref}} # github-refを入れているのは同一PRに対する多重起動の抑制を行うから
+        cancel-in-progress: true
+
+jobs:
+    lint:
+        runs-on: ubunts-latest
+        timeout-minutes: 5                  # タイムアウト
+        steps:
+            - uses: action/checkout@v4
+            - run: |
+                docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest
