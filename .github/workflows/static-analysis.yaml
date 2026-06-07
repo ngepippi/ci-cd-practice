@@ -11,9 +11,9 @@ concurrency:            # 自動キャンセル（コミットの追加時に古
 
 jobs:
     lint:
-        runs-on: ubunts-latest
+        runs-on: ubuntu-latest
         timeout-minutes: 5                  # タイムアウト
         steps:
-            - uses: action/checkout@v4
+            - uses: actions/checkout@v4
             - run: |
                 docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest
