@@ -1,7 +1,7 @@
 name: Static analysis
 on:
     pull_request:
-        paths: ['.gihub/workflows/*.yml', '.gihub/workflows/*.yaml']
+        paths: ['.github/workflows/*.yml', '.github/workflows/*.yaml']
 defaults:
     run: 
         shell: bash     # デフォルトのシェルの指定
